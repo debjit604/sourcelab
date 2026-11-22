@@ -17,6 +17,7 @@ import loremGeneratorTool from "./tools/lorem-generator";
 import passwordGeneratorTool from "./tools/password-generator";
 import pdfMergeTool from "./tools/pdf-merge";
 import qrCodeTool from "./tools/qr-code";
+import sipCalculatorTool from "./tools/sip-calculator";
 import urlEncoderTool from "./tools/url-encoder";
 import uuidGeneratorTool from "./tools/uuid-generator";
 import wordCounterTool from "./tools/word-counter";
@@ -37,6 +38,7 @@ export const allTools: Tool[] = [
   passwordGeneratorTool,
   pdfMergeTool,
   qrCodeTool,
+  sipCalculatorTool,
   urlEncoderTool,
   uuidGeneratorTool,
   wordCounterTool

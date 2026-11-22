@@ -20,4 +20,5 @@ export const toolComponents: Record<string, ComponentType<Record<string, unknown
   "image-resize": dynamic(() => import("@/tools/image-resize")),
   "csv-json": dynamic(() => import("@/tools/csv-json")),
   "lorem-generator": dynamic(() => import("@/tools/lorem-generator")),
+  "sip-calculator": dynamic(() => import("@/tools/sip-calculator")),
 };
