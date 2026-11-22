@@ -8,6 +8,7 @@ import jsonFormatterTool from "./tools/json-formatter";
 import jwtDecoderTool from "./tools/jwt-decoder";
 import passwordGeneratorTool from "./tools/password-generator";
 import urlEncoderTool from "./tools/url-encoder";
+import wordCounterTool from "./tools/word-counter";
 
 export const allTools: Tool[] = [
   base64Tool,
@@ -15,5 +16,6 @@ export const allTools: Tool[] = [
   jsonFormatterTool,
   jwtDecoderTool,
   passwordGeneratorTool,
-  urlEncoderTool
+  urlEncoderTool,
+  wordCounterTool
 ];
