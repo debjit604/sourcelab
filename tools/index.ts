@@ -15,4 +15,5 @@ export const toolComponents: Record<string, ComponentType<Record<string, unknown
   "case-converter": dynamic(() => import("@/tools/case-converter")),
   "uuid-generator": dynamic(() => import("@/tools/uuid-generator")),
   "gst-calculator": dynamic(() => import("@/tools/gst-calculator")),
+  "diff-checker": dynamic(() => import("@/tools/diff-checker")),
 };
