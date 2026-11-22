@@ -4,6 +4,7 @@
 import { Tool } from "./types";
 import base64Tool from "./tools/base64";
 import caseConverterTool from "./tools/case-converter";
+import csvJsonTool from "./tools/csv-json";
 import diffCheckerTool from "./tools/diff-checker";
 import emiCalculatorTool from "./tools/emi-calculator";
 import gstCalculatorTool from "./tools/gst-calculator";
@@ -22,6 +23,7 @@ import wordCounterTool from "./tools/word-counter";
 export const allTools: Tool[] = [
   base64Tool,
   caseConverterTool,
+  csvJsonTool,
   diffCheckerTool,
   emiCalculatorTool,
   gstCalculatorTool,

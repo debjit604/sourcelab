@@ -18,4 +18,5 @@ export const toolComponents: Record<string, ComponentType<Record<string, unknown
   "diff-checker": dynamic(() => import("@/tools/diff-checker")),
   "pdf-merge": dynamic(() => import("@/tools/pdf-merge")),
   "image-resize": dynamic(() => import("@/tools/image-resize")),
+  "csv-json": dynamic(() => import("@/tools/csv-json")),
 };
