@@ -209,8 +209,8 @@ ${componentExportLine}
 `;
   } else {
     currentToolsIndex = currentToolsIndex.replace(
-      /export const toolComponents: Record<string, ComponentType<unknown>> = \{/,
-      `export const toolComponents: Record<string, ComponentType<unknown>> = {\n${componentExportLine}`
+      /export const toolComponents: Record<string, ComponentType<[^>]+>> = \{/,
+      `export const toolComponents: Record<string, ComponentType<Record<string, unknown>>> = {\n${componentExportLine}`
     );
   }
   fs.writeFileSync(toolsIndexFile, currentToolsIndex, "utf-8");

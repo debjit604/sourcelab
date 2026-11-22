@@ -67,8 +67,8 @@ function validateRegistry() {
     }
 
     // 8. Privacy check
-    if (tool.privacy !== "client" && tool.privacy !== "server") {
-      errors.push(`[${tool.id}] Privacy must be "client" or "server".`);
+    if (tool.privacy !== "client" && tool.privacy !== "server" && tool.privacy !== "third-party") {
+      errors.push(`[${tool.id}] Privacy must be "client", "server", or "third-party".`);
     }
   }
 

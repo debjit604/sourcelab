@@ -36,7 +36,8 @@ export type Tool = {
   wave: 1 | 2 | 3 | 4;
   heavy: boolean;
   modelSizeMB?: number;
-  privacy: "client" | "server";
+  privacy: "client" | "server" | "third-party";
+  thirdPartyNotice?: string;
   related?: string[];
   chainTo?: string[];
   faq: { q: string; a: string }[];  // min 4, Hinglish

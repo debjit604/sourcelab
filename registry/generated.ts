@@ -16,6 +16,7 @@ import cspEvaluatorTool from "./tools/csp-evaluator";
 import csvJsonTool from "./tools/csv-json";
 import cvssCalculatorTool from "./tools/cvss-calculator";
 import diffCheckerTool from "./tools/diff-checker";
+import dnsLookupTool from "./tools/dns-lookup";
 import emiCalculatorTool from "./tools/emi-calculator";
 import fancyFontsTool from "./tools/fancy-fonts";
 import findReplaceTool from "./tools/find-replace";
@@ -71,6 +72,7 @@ export const allTools: Tool[] = [
   csvJsonTool,
   cvssCalculatorTool,
   diffCheckerTool,
+  dnsLookupTool,
   emiCalculatorTool,
   fancyFontsTool,
   findReplaceTool,

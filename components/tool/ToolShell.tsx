@@ -18,6 +18,7 @@ import {
   HelpCircle,
   ExternalLink,
   RotateCw,
+  Globe,
 } from "lucide-react";
 
 export interface ToolShellProps {
@@ -162,6 +163,12 @@ export function ToolShell({
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-medium bg-[rgba(52,211,153,0.1)] text-[var(--sl-success)] border border-[rgba(52,211,153,0.2)]">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 Zero Upload • 100% Client-Side
+              </span>
+            )}
+            {tool.privacy === "third-party" && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-medium bg-[rgba(34,211,238,0.1)] text-[var(--sl-accent)] border border-[rgba(34,211,238,0.2)]">
+                <Globe className="w-3.5 h-3.5" />
+                {tool.thirdPartyNotice || "Queries go to DoH Resolver"}
               </span>
             )}
           </div>
