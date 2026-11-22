@@ -23,6 +23,7 @@ import hashIdentifierTool from "./tools/hash-identifier";
 import htmlEntityTool from "./tools/html-entity";
 import imageCompressTool from "./tools/image-compress";
 import imageResizeTool from "./tools/image-resize";
+import jsAnalyzerTool from "./tools/js-analyzer";
 import jsonFormatterTool from "./tools/json-formatter";
 import jwtDecoderTool from "./tools/jwt-decoder";
 import loremGeneratorTool from "./tools/lorem-generator";
@@ -74,6 +75,7 @@ export const allTools: Tool[] = [
   htmlEntityTool,
   imageCompressTool,
   imageResizeTool,
+  jsAnalyzerTool,
   jsonFormatterTool,
   jwtDecoderTool,
   loremGeneratorTool,
