@@ -9,6 +9,7 @@ import emiCalculatorTool from "./tools/emi-calculator";
 import gstCalculatorTool from "./tools/gst-calculator";
 import hashGeneratorTool from "./tools/hash-generator";
 import imageCompressTool from "./tools/image-compress";
+import imageResizeTool from "./tools/image-resize";
 import jsonFormatterTool from "./tools/json-formatter";
 import jwtDecoderTool from "./tools/jwt-decoder";
 import passwordGeneratorTool from "./tools/password-generator";
@@ -26,6 +27,7 @@ export const allTools: Tool[] = [
   gstCalculatorTool,
   hashGeneratorTool,
   imageCompressTool,
+  imageResizeTool,
   jsonFormatterTool,
   jwtDecoderTool,
   passwordGeneratorTool,

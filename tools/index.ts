@@ -17,4 +17,5 @@ export const toolComponents: Record<string, ComponentType<Record<string, unknown
   "gst-calculator": dynamic(() => import("@/tools/gst-calculator")),
   "diff-checker": dynamic(() => import("@/tools/diff-checker")),
   "pdf-merge": dynamic(() => import("@/tools/pdf-merge")),
+  "image-resize": dynamic(() => import("@/tools/image-resize")),
 };
