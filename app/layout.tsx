@@ -26,9 +26,41 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SourceLab — Privacy-First Browser Tools Suite",
+  metadataBase: new URL("https://sourcelab.github.io"),
+  title: {
+    default: "SourceLab — Privacy-First Browser Tools Suite",
+    template: "%s | SourceLab",
+  },
   description:
     "Free, no-signup, privacy-first suite of browser tools. Tumhari file tumhare browser me hi process hoti hai — server pe kabhi nahi jaati.",
+  openGraph: {
+    title: "SourceLab — Privacy-First Browser Tools Suite",
+    description:
+      "Free, no-signup, privacy-first suite of browser tools. Tumhari file tumhare browser me hi process hoti hai — server pe kabhi nahi jaati.",
+    url: "https://sourcelab.github.io",
+    siteName: "SourceLab",
+    images: [
+      {
+        url: "/media/og-home.png",
+        width: 1200,
+        height: 630,
+        alt: "SourceLab — Privacy-First Browser Tools Suite",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SourceLab — Privacy-First Browser Tools Suite",
+    description:
+      "Free, no-signup, privacy-first suite of browser tools. Tumhari file tumhare browser me hi process hoti hai.",
+    images: ["/media/og-home.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
