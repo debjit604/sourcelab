@@ -13,6 +13,7 @@ import imageCompressTool from "./tools/image-compress";
 import imageResizeTool from "./tools/image-resize";
 import jsonFormatterTool from "./tools/json-formatter";
 import jwtDecoderTool from "./tools/jwt-decoder";
+import loremGeneratorTool from "./tools/lorem-generator";
 import passwordGeneratorTool from "./tools/password-generator";
 import pdfMergeTool from "./tools/pdf-merge";
 import qrCodeTool from "./tools/qr-code";
@@ -32,6 +33,7 @@ export const allTools: Tool[] = [
   imageResizeTool,
   jsonFormatterTool,
   jwtDecoderTool,
+  loremGeneratorTool,
   passwordGeneratorTool,
   pdfMergeTool,
   qrCodeTool,
