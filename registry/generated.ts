@@ -3,6 +3,7 @@
 
 import { Tool } from "./types";
 import base64Tool from "./tools/base64";
+import emiCalculatorTool from "./tools/emi-calculator";
 import hashGeneratorTool from "./tools/hash-generator";
 import jsonFormatterTool from "./tools/json-formatter";
 import jwtDecoderTool from "./tools/jwt-decoder";
@@ -13,6 +14,7 @@ import wordCounterTool from "./tools/word-counter";
 
 export const allTools: Tool[] = [
   base64Tool,
+  emiCalculatorTool,
   hashGeneratorTool,
   jsonFormatterTool,
   jwtDecoderTool,
