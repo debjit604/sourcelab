@@ -51,6 +51,7 @@ import textBinaryTool from "./tools/text-binary";
 import textSorterTool from "./tools/text-sorter";
 import timestampConverterTool from "./tools/timestamp-converter";
 import totpGeneratorTool from "./tools/totp-generator";
+import typingTestTool from "./tools/typing-test";
 import unitConverterTool from "./tools/unit-converter";
 import urlEncoderTool from "./tools/url-encoder";
 import uuidGeneratorTool from "./tools/uuid-generator";
@@ -107,6 +108,7 @@ export const allTools: Tool[] = [
   textSorterTool,
   timestampConverterTool,
   totpGeneratorTool,
+  typingTestTool,
   unitConverterTool,
   urlEncoderTool,
   uuidGeneratorTool,
