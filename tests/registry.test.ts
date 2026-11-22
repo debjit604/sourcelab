@@ -36,7 +36,7 @@ describe("Registry Verification", () => {
   it("filters live tools and category tools", () => {
     expect(liveTools().length).toBeGreaterThanOrEqual(2);
     expect(toolsByCategory("dev").length).toBeGreaterThanOrEqual(2);
-    expect(toolsByCategory("pdf").length).toBe(0);
+    expect(toolsByCategory("pdf").length).toBeGreaterThanOrEqual(1);
   });
 
   it("searches tools with fuse.js", () => {

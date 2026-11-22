@@ -12,6 +12,7 @@ import imageCompressTool from "./tools/image-compress";
 import jsonFormatterTool from "./tools/json-formatter";
 import jwtDecoderTool from "./tools/jwt-decoder";
 import passwordGeneratorTool from "./tools/password-generator";
+import pdfMergeTool from "./tools/pdf-merge";
 import qrCodeTool from "./tools/qr-code";
 import urlEncoderTool from "./tools/url-encoder";
 import uuidGeneratorTool from "./tools/uuid-generator";
@@ -28,6 +29,7 @@ export const allTools: Tool[] = [
   jsonFormatterTool,
   jwtDecoderTool,
   passwordGeneratorTool,
+  pdfMergeTool,
   qrCodeTool,
   urlEncoderTool,
   uuidGeneratorTool,
