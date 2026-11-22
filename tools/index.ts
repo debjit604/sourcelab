@@ -21,4 +21,5 @@ export const toolComponents: Record<string, ComponentType<Record<string, unknown
   "csv-json": dynamic(() => import("@/tools/csv-json")),
   "lorem-generator": dynamic(() => import("@/tools/lorem-generator")),
   "sip-calculator": dynamic(() => import("@/tools/sip-calculator")),
+  "timestamp-converter": dynamic(() => import("@/tools/timestamp-converter")),
 };
