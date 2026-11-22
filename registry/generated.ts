@@ -12,6 +12,7 @@ import jwtDecoderTool from "./tools/jwt-decoder";
 import passwordGeneratorTool from "./tools/password-generator";
 import qrCodeTool from "./tools/qr-code";
 import urlEncoderTool from "./tools/url-encoder";
+import uuidGeneratorTool from "./tools/uuid-generator";
 import wordCounterTool from "./tools/word-counter";
 
 export const allTools: Tool[] = [
@@ -25,5 +26,6 @@ export const allTools: Tool[] = [
   passwordGeneratorTool,
   qrCodeTool,
   urlEncoderTool,
+  uuidGeneratorTool,
   wordCounterTool
 ];
