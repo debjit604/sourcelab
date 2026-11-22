@@ -1,5 +1,6 @@
+import dynamic from "next/dynamic";
 import { ComponentType } from "react";
 
 export const toolComponents: Record<string, ComponentType<Record<string, unknown>>> = {
-  // Tool components registered dynamically by id
+  "json-formatter": dynamic(() => import("@/tools/json-formatter")),
 };

@@ -197,7 +197,7 @@ if (fs.existsSync(toolsIndexFile)) {
   currentToolsIndex = fs.readFileSync(toolsIndexFile, "utf-8");
 }
 
-const componentExportLine = `  "${id}": dynamic(() => import("@/tools/${id}"), { ssr: false }),`;
+const componentExportLine = `  "${id}": dynamic(() => import("@/tools/${id}")),`;
 if (!currentToolsIndex.includes(`"${id}":`)) {
   if (!currentToolsIndex.includes("toolComponents")) {
     currentToolsIndex = `import dynamic from "next/dynamic";
