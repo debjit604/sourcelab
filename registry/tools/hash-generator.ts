@@ -32,7 +32,7 @@ export const hashGeneratorTool: Tool = {
   wave: 1,
   heavy: false,
   privacy: "client",
-  related: ["base64", "jwt-decoder"],
+  related: ["base64", "jwt-decoder", "password-generator"],
   chainTo: ["base64"],
   faq: [
     {

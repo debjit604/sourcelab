@@ -6,6 +6,7 @@ import base64Tool from "./tools/base64";
 import hashGeneratorTool from "./tools/hash-generator";
 import jsonFormatterTool from "./tools/json-formatter";
 import jwtDecoderTool from "./tools/jwt-decoder";
+import passwordGeneratorTool from "./tools/password-generator";
 import urlEncoderTool from "./tools/url-encoder";
 
 export const allTools: Tool[] = [
@@ -13,5 +14,6 @@ export const allTools: Tool[] = [
   hashGeneratorTool,
   jsonFormatterTool,
   jwtDecoderTool,
+  passwordGeneratorTool,
   urlEncoderTool
 ];
