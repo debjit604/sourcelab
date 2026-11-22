@@ -5,6 +5,7 @@ import { Tool } from "./types";
 import base64Tool from "./tools/base64";
 import caseConverterTool from "./tools/case-converter";
 import emiCalculatorTool from "./tools/emi-calculator";
+import gstCalculatorTool from "./tools/gst-calculator";
 import hashGeneratorTool from "./tools/hash-generator";
 import imageCompressTool from "./tools/image-compress";
 import jsonFormatterTool from "./tools/json-formatter";
@@ -19,6 +20,7 @@ export const allTools: Tool[] = [
   base64Tool,
   caseConverterTool,
   emiCalculatorTool,
+  gstCalculatorTool,
   hashGeneratorTool,
   imageCompressTool,
   jsonFormatterTool,

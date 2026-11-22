@@ -14,4 +14,5 @@ export const toolComponents: Record<string, ComponentType<Record<string, unknown
   "image-compress": dynamic(() => import("@/tools/image-compress")),
   "case-converter": dynamic(() => import("@/tools/case-converter")),
   "uuid-generator": dynamic(() => import("@/tools/uuid-generator")),
+  "gst-calculator": dynamic(() => import("@/tools/gst-calculator")),
 };
