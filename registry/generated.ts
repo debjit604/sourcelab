@@ -3,12 +3,14 @@
 
 import { Tool } from "./types";
 import base64Tool from "./tools/base64";
+import hashGeneratorTool from "./tools/hash-generator";
 import jsonFormatterTool from "./tools/json-formatter";
 import jwtDecoderTool from "./tools/jwt-decoder";
 import urlEncoderTool from "./tools/url-encoder";
 
 export const allTools: Tool[] = [
   base64Tool,
+  hashGeneratorTool,
   jsonFormatterTool,
   jwtDecoderTool,
   urlEncoderTool
