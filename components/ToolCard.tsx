@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Tool } from "@/registry/types";
 import { getCategoryMeta } from "@/registry/categories";
 import { ShieldCheck, ArrowUpRight } from "lucide-react";
-import * as Icons from "lucide-react";
+import { ToolIcon } from "@/components/ToolIcon";
 
 interface ToolCardProps {
   tool: Tool;
@@ -14,15 +14,6 @@ interface ToolCardProps {
 
 export function ToolCard({ tool, className }: ToolCardProps) {
   const catMeta = getCategoryMeta(tool.category);
-
-  // Dynamic Lucide icon lookup with fallback
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const IconComponent = (Icons as any)[
-    tool.icon
-      .split("-")
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join("")
-  ] || Icons.Wrench;
 
   return (
     <Link
@@ -40,7 +31,7 @@ export function ToolCard({ tool, className }: ToolCardProps) {
               color: catMeta.color,
             }}
           >
-            <IconComponent className="w-5 h-5" />
+            <ToolIcon name={tool.icon} className="w-5 h-5" />
           </div>
           <div className="flex items-center gap-1.5 text-xs text-[var(--sl-muted)] group-hover:text-[var(--sl-accent)] transition-colors">
             <span className="font-mono">{catMeta.name}</span>

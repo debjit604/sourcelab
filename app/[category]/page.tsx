@@ -6,7 +6,7 @@ import { categoryList, getCategoryMeta, toolsByCategory } from "@/registry";
 import { Category } from "@/registry/types";
 import { ToolCard } from "@/components/ToolCard";
 import { ChevronRight, Sparkles, Plus } from "lucide-react";
-import * as Icons from "lucide-react";
+import { ToolIcon } from "@/components/ToolIcon";
 
 interface CategoryPageProps {
   params: Promise<{
@@ -40,14 +40,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   const tools = toolsByCategory(category as Category);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const CatIcon = (Icons as any)[
-    catMeta.icon
-      .split("-")
-      .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-      .join("")
-  ] || Icons.Wrench;
-
   return (
     <main className="w-full max-w-[var(--max-w-home)] mx-auto px-4 sm:px-6 py-8 md:py-12 space-y-8">
       {/* Breadcrumb */}
@@ -69,7 +61,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               color: catMeta.color,
             }}
           >
-            <CatIcon className="w-7 h-7" />
+            <ToolIcon name={catMeta.icon} className="w-7 h-7" />
           </div>
           <div>
             <h1 className="text-2xl md:text-3xl font-bold font-heading text-[var(--sl-text)]">

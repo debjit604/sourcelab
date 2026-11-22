@@ -5,7 +5,7 @@ import { ToolCard } from "@/components/ToolCard";
 import { SearchTrigger } from "@/components/SearchTrigger";
 import { RecentAndFavs } from "@/components/RecentAndFavs";
 import { ShieldCheck, Zap, WifiOff, Sparkles, ArrowRight } from "lucide-react";
-import * as Icons from "lucide-react";
+import { ToolIcon } from "@/components/ToolIcon";
 
 export default function HomePage() {
   const popular = popularTools(8);
@@ -94,13 +94,6 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {categoryList.map((cat) => {
             const count = toolsByCategory(cat.id).length;
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const CatIcon = (Icons as any)[
-              cat.icon
-                .split("-")
-                .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-                .join("")
-            ] || Icons.Wrench;
 
             return (
               <Link
@@ -117,10 +110,10 @@ export default function HomePage() {
                         color: cat.color,
                       }}
                     >
-                      <CatIcon className="w-5 h-5" />
+                      <ToolIcon name={cat.icon} className="w-5 h-5" />
                     </div>
                     <span className="text-xs font-mono text-[var(--sl-muted)]">
-                      {count > 0 ? `${count} tools` : "Coming soon"}
+                      {count > 0 ? `${count} ${count === 1 ? "tool" : "tools"}` : "Coming soon"}
                     </span>
                   </div>
 

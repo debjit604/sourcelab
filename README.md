@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SourceLab 🧪
 
-## Getting Started
+> **Tumhari file tumhare browser me hi process hoti hai — server pe kabhi nahi jaati.**
 
-First, run the development server:
+SourceLab is a 100% client-side, privacy-first developer and utility toolkit. Every PDF transformation, image compression, hash generation, and calculation runs directly inside your browser using HTML5 Canvas, Web Workers, and WebAssembly.
+
+---
+
+## ⚡ Core Features
+
+- 🔒 **Zero Server Uploads**: No backend servers, no file transfers, no database. Everything executes in client memory.
+- 🚀 **Blazing Fast**: Near-instant execution with Web Workers and pure client-side algorithms.
+- 📱 **Progressive Web App (PWA)**: Installable on Desktop and Mobile via Serwist for true offline usage.
+- ⌨️ **Keyboard First**: Global Command Palette (`Ctrl + K` or `/`), quick shortcuts, and accessible tab flows.
+- 🎨 **Modern Cyber-Slate Design**: Space Grotesk + JetBrains Mono typography with accessible contrast and reduced-motion support.
+- 🧪 **Registry-Driven Architecture**: Fully modular tool system where all routes, discovery, metadata, and FAQ JSON-LD schemas are generated from a single declarative registry.
+
+---
+
+## 🛠️ Live Tools (Wave 1)
+
+| Tool | Category | Engine | Description |
+| :--- | :--- | :--- | :--- |
+| **JSON Formatter** | Dev | Pure JS | Beautify, minify, and validate JSON with exact syntax line indicators |
+| **Base64 Encode/Decode** | Dev | Pure JS / Buffer | Fast text and binary data encoder/decoder with URL-safe mode |
+| **URL Encoder/Decoder** | Dev | Pure JS | Percent-encode and decode URIs and query strings cleanly |
+| **JWT Decoder** | Dev | Pure JS | Inspect JSON Web Token headers, payload claims, and expiration timestamps |
+| **Hash Generator** | Security | Web Crypto / MD5 | Calculate MD5, SHA-1, SHA-256, and SHA-512 hashes in real-time |
+| **Password Generator** | Security | Web Crypto | Cryptographically secure password generator with customizable character sets |
+| **Word & Char Counter** | Text | Pure JS | Real-time word, character, sentence, paragraph, reading, and speaking time counter |
+| **QR Code Generator** | Utilities | Canvas / qrcode | Generate downloadable PNG/SVG QR codes with configurable error correction |
+| **EMI Loan Calculator** | Calculator | Pure JS | Compute monthly EMIs, total interest, and amortization breakups with monthly sliders |
+| **Image Compressor** | Image | Canvas / Workers | Compress JPEG, PNG, and WebP images client-side with side-by-side preview |
+
+---
+
+## 🏗️ Architecture & Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org) (App Router, Static HTML Export `output: "export"`)
+- **Language**: TypeScript (Strict Mode)
+- **Styling**: Tailwind CSS & Radix UI primitives
+- **Icons**: Lucide React
+- **State**: Zustand (with localStorage persistence)
+- **Search**: Fuse.js (Client-side fuzzy search with Hinglish phonetic support)
+- **Offline / PWA**: Serwist Service Worker
+- **Testing**: Vitest & Testing Library
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js >= 20.0.0
+- pnpm >= 9.0.0 (`npm i -g pnpm`)
+
+### Installation & Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Clone the repository
+git clone https://github.com/your-username/sourcelab.git
+cd sourcelab
+
+# Install dependencies
+pnpm install
+
+# Start local development server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building & Testing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Run test suite
+pnpm test
 
-## Learn More
+# Run code linter
+pnpm lint
 
-To learn more about Next.js, take a look at the following resources:
+# Build static production export
+pnpm build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The static output will be generated into `out/`, ready for zero-cost hosting on GitHub Pages, Cloudflare Pages, or Vercel.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We welcome community contributions! Please read our [CONTRIBUTING.md](./CONTRIBUTING.md) to learn how to add new tools using our automated scaffolding CLI (`pnpm new-tool <id> <category>`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE).

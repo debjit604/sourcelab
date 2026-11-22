@@ -8,7 +8,7 @@ import { getCategoryMeta } from "@/registry/categories";
 import { useRecent } from "@/hooks/useRecent";
 import { Tool } from "@/registry/types";
 import { Search, Clock, ArrowRight, X, Sparkles } from "lucide-react";
-import * as Icons from "lucide-react";
+import { ToolIcon } from "@/components/ToolIcon";
 
 export function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
@@ -187,14 +187,6 @@ export function CommandPalette() {
               {results.map((tool, idx) => {
                 const isSelected = idx === selectedIndex;
                 const catMeta = getCategoryMeta(tool.category);
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const IconComp = (Icons as any)[
-                  tool.icon
-                    .split("-")
-                    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-                    .join("")
-                ] || Icons.Wrench;
-
                 return (
                   <li
                     id={`palette-item-${tool.id}`}
@@ -220,7 +212,7 @@ export function CommandPalette() {
                           color: catMeta.color,
                         }}
                       >
-                        <IconComp className="w-4 h-4" />
+                        <ToolIcon name={tool.icon} className="w-4 h-4" />
                       </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
