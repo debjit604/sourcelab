@@ -1,0 +1,55 @@
+:root,
+.dark {
+  /* SourceLab Brand Design Tokens */
+  --sl-bg: #0B0F1A;
+  --sl-surface: #121828;
+  --sl-surface-hover: #171F34;
+  --sl-border: #232C42;
+  --sl-text: #E6EAF2;
+  --sl-muted: #8B95AD;
+  --sl-accent: #22D3EE;
+  --sl-accent-glow: rgba(34, 211, 238, 0.25);
+  --sl-success: #34D399;
+  --sl-warning: #FBBF24;
+  --sl-error: #F87171;
+
+  /* Dimensions and Radii */
+  --radius-input: 10px;
+  --radius-card: 14px;
+  --radius-dropzone: 16px;
+  --max-w-home: 1200px;
+  --max-w-tool: 1080px;
+  --min-touch-target: 44px;
+
+  /* Shadcn UI Dark Default Mapping */
+  --background: #0B0F1A;
+  --foreground: #E6EAF2;
+  --card: #121828;
+  --card-foreground: #E6EAF2;
+  --popover: #121828;
+  --popover-foreground: #E6EAF2;
+  --primary: #22D3EE;
+  --primary-foreground: #0B0F1A;
+  --secondary: #171F34;
+  --secondary-foreground: #E6EAF2;
+  --muted: #171F34;
+  --muted-foreground: #8B95AD;
+  --accent: #171F34;
+  --accent-foreground: #22D3EE;
+  --destructive: #F87171;
+  --destructive-foreground: #0B0F1A;
+  --border: #232C42;
+  --input: #232C42;
+  --ring: #22D3EE;
+  --radius: 10px;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
