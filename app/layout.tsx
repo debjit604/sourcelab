@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { BottomNav } from "@/components/layout/BottomNav";
+import { CommandPalette } from "@/components/CommandPalette";
 import "./globals.css";
 
 const inter = Inter({
@@ -37,8 +41,14 @@ export default function RootLayout({
       lang="en"
       className={`dark ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen bg-[var(--sl-bg)] text-[var(--sl-text)] font-sans antialiased">
-        <TooltipProvider>{children}</TooltipProvider>
+      <body className="min-h-screen bg-[var(--sl-bg)] text-[var(--sl-text)] font-sans antialiased flex flex-col pb-16 md:pb-0">
+        <TooltipProvider>
+          <Header />
+          <div className="flex-1 w-full">{children}</div>
+          <Footer />
+          <BottomNav />
+          <CommandPalette />
+        </TooltipProvider>
       </body>
     </html>
   );

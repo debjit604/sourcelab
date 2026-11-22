@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/gen-registry.mjs && tsx scripts/validate-registry.ts",
-    "build": "next build",
+    "build": "next build --webpack",
     "test": "vitest run",
     "lint": "eslint",
     "new-tool": "node scripts/new-tool.mjs"
