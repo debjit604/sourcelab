@@ -11,6 +11,8 @@ import caesarRotTool from "./tools/caesar-rot";
 import caseConverterTool from "./tools/case-converter";
 import colorPickerTool from "./tools/color-picker";
 import compoundInterestTool from "./tools/compound-interest";
+import cookieAnalyzerTool from "./tools/cookie-analyzer";
+import cspEvaluatorTool from "./tools/csp-evaluator";
 import csvJsonTool from "./tools/csv-json";
 import cvssCalculatorTool from "./tools/cvss-calculator";
 import diffCheckerTool from "./tools/diff-checker";
@@ -20,6 +22,7 @@ import findReplaceTool from "./tools/find-replace";
 import gstCalculatorTool from "./tools/gst-calculator";
 import hashGeneratorTool from "./tools/hash-generator";
 import hashIdentifierTool from "./tools/hash-identifier";
+import headerAnalyzerTool from "./tools/header-analyzer";
 import htmlEntityTool from "./tools/html-entity";
 import imageCompressTool from "./tools/image-compress";
 import imageResizeTool from "./tools/image-resize";
@@ -63,6 +66,8 @@ export const allTools: Tool[] = [
   caseConverterTool,
   colorPickerTool,
   compoundInterestTool,
+  cookieAnalyzerTool,
+  cspEvaluatorTool,
   csvJsonTool,
   cvssCalculatorTool,
   diffCheckerTool,
@@ -72,6 +77,7 @@ export const allTools: Tool[] = [
   gstCalculatorTool,
   hashGeneratorTool,
   hashIdentifierTool,
+  headerAnalyzerTool,
   htmlEntityTool,
   imageCompressTool,
   imageResizeTool,
