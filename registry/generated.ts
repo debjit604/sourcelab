@@ -6,62 +6,100 @@ import aadhaarMaskerTool from "./tools/aadhaar-masker";
 import ageCalculatorTool from "./tools/age-calculator";
 import aspectRatioTool from "./tools/aspect-ratio";
 import base64Tool from "./tools/base64";
+import bmiCalculatorTool from "./tools/bmi-calculator";
+import caesarRotTool from "./tools/caesar-rot";
 import caseConverterTool from "./tools/case-converter";
 import colorPickerTool from "./tools/color-picker";
+import compoundInterestTool from "./tools/compound-interest";
 import csvJsonTool from "./tools/csv-json";
+import cvssCalculatorTool from "./tools/cvss-calculator";
 import diffCheckerTool from "./tools/diff-checker";
 import emiCalculatorTool from "./tools/emi-calculator";
+import fancyFontsTool from "./tools/fancy-fonts";
+import findReplaceTool from "./tools/find-replace";
 import gstCalculatorTool from "./tools/gst-calculator";
 import hashGeneratorTool from "./tools/hash-generator";
+import hashIdentifierTool from "./tools/hash-identifier";
 import htmlEntityTool from "./tools/html-entity";
 import imageCompressTool from "./tools/image-compress";
 import imageResizeTool from "./tools/image-resize";
 import jsonFormatterTool from "./tools/json-formatter";
 import jwtDecoderTool from "./tools/jwt-decoder";
 import loremGeneratorTool from "./tools/lorem-generator";
+import magicDecoderTool from "./tools/magic-decoder";
 import markdownPreviewTool from "./tools/markdown-preview";
+import morseCodeTool from "./tools/morse-code";
+import numberToWordsTool from "./tools/number-to-words";
 import passwordGeneratorTool from "./tools/password-generator";
+import passwordStrengthTool from "./tools/password-strength";
 import pdfMergeTool from "./tools/pdf-merge";
 import pdfSplitTool from "./tools/pdf-split";
+import percentageCalculatorTool from "./tools/percentage-calculator";
 import qrCodeTool from "./tools/qr-code";
+import randomPickerTool from "./tools/random-picker";
 import regexTesterTool from "./tools/regex-tester";
+import removeDuplicatesTool from "./tools/remove-duplicates";
 import sipCalculatorTool from "./tools/sip-calculator";
+import slugGeneratorTool from "./tools/slug-generator";
 import svgToPngTool from "./tools/svg-to-png";
+import textBinaryTool from "./tools/text-binary";
 import textSorterTool from "./tools/text-sorter";
 import timestampConverterTool from "./tools/timestamp-converter";
+import totpGeneratorTool from "./tools/totp-generator";
+import unitConverterTool from "./tools/unit-converter";
 import urlEncoderTool from "./tools/url-encoder";
 import uuidGeneratorTool from "./tools/uuid-generator";
 import wordCounterTool from "./tools/word-counter";
+import xorToolTool from "./tools/xor-tool";
 
 export const allTools: Tool[] = [
   aadhaarMaskerTool,
   ageCalculatorTool,
   aspectRatioTool,
   base64Tool,
+  bmiCalculatorTool,
+  caesarRotTool,
   caseConverterTool,
   colorPickerTool,
+  compoundInterestTool,
   csvJsonTool,
+  cvssCalculatorTool,
   diffCheckerTool,
   emiCalculatorTool,
+  fancyFontsTool,
+  findReplaceTool,
   gstCalculatorTool,
   hashGeneratorTool,
+  hashIdentifierTool,
   htmlEntityTool,
   imageCompressTool,
   imageResizeTool,
   jsonFormatterTool,
   jwtDecoderTool,
   loremGeneratorTool,
+  magicDecoderTool,
   markdownPreviewTool,
+  morseCodeTool,
+  numberToWordsTool,
   passwordGeneratorTool,
+  passwordStrengthTool,
   pdfMergeTool,
   pdfSplitTool,
+  percentageCalculatorTool,
   qrCodeTool,
+  randomPickerTool,
   regexTesterTool,
+  removeDuplicatesTool,
   sipCalculatorTool,
+  slugGeneratorTool,
   svgToPngTool,
+  textBinaryTool,
   textSorterTool,
   timestampConverterTool,
+  totpGeneratorTool,
+  unitConverterTool,
   urlEncoderTool,
   uuidGeneratorTool,
-  wordCounterTool
+  wordCounterTool,
+  xorToolTool
 ];

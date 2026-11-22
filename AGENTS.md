@@ -44,6 +44,13 @@ Per-tool libraries (install only when needed, dynamic import only):
 1. CLIENT-SIDE ONLY. No server. No API routes. No uploads.
    Everything runs in browser (Canvas, Workers, WASM).
    If a tool needs a server, mark privacy: "server" and skip for now.
+   - Recon backend lives in services/recon (separate package, own Dockerfile).
+     The Next.js app only calls it through a server route with Turnstile.
+     No fetch-arbitrary-URL code in the Next.js app.
+   - Tier 1 recon tools are client-side only. Tier 2 tools must never show
+     the Zero upload badge.
+   - Never test found credentials. Never add port scanning, brute force or fuzzing.
+   - Read docs/07-recon-suite-spec.md before touching recon code.
 
 2. REGISTRY-DRIVEN. Every tool's metadata lives in
    registry/tools/<id>.ts. Home, search, Ctrl+K, sitemap, SEO,

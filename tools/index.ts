@@ -32,4 +32,11 @@ export const toolComponents: Record<string, ComponentType<Record<string, unknown
   "aspect-ratio": dynamic(() => import("@/tools/aspect-ratio")),
   "regex-tester": dynamic(() => import("@/tools/regex-tester")),
   "aadhaar-masker": dynamic(() => import("@/tools/aadhaar-masker")),
+  "password-strength": dynamic(() => import("@/tools/password-strength")),
+  "hash-identifier": dynamic(() => import("@/tools/hash-identifier")),
+  "magic-decoder": dynamic(() => import("@/tools/magic-decoder")),
+  "caesar-rot": dynamic(() => import("@/tools/caesar-rot")),
+  "xor-tool": dynamic(() => import("@/tools/xor-tool")),
+  "totp-generator": dynamic(() => import("@/tools/totp-generator")),
+  "cvss-calculator": dynamic(() => import("@/tools/cvss-calculator")),
 };
