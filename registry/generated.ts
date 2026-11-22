@@ -3,6 +3,7 @@
 
 import { Tool } from "./types";
 import base64Tool from "./tools/base64";
+import caseConverterTool from "./tools/case-converter";
 import emiCalculatorTool from "./tools/emi-calculator";
 import hashGeneratorTool from "./tools/hash-generator";
 import imageCompressTool from "./tools/image-compress";
@@ -15,6 +16,7 @@ import wordCounterTool from "./tools/word-counter";
 
 export const allTools: Tool[] = [
   base64Tool,
+  caseConverterTool,
   emiCalculatorTool,
   hashGeneratorTool,
   imageCompressTool,
