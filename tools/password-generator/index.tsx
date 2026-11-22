@@ -65,6 +65,13 @@ export default function PasswordGeneratorToolComponent() {
 
   const strength = output?.strength;
 
+  const charOptions = [
+    { label: "Uppercase (A-Z)", checked: uppercase, change: (c: boolean) => { setUppercase(c); handleGenerate({ uppercase: c }); } },
+    { label: "Lowercase (a-z)", checked: lowercase, change: (c: boolean) => { setLowercase(c); handleGenerate({ lowercase: c }); } },
+    { label: "Numbers (0-9)", checked: numbers, change: (c: boolean) => { setNumbers(c); handleGenerate({ numbers: c }); } },
+    { label: "Symbols (!@#$)", checked: symbols, change: (c: boolean) => { setSymbols(c); handleGenerate({ symbols: c }); } },
+  ];
+
   return (
     <ToolShell
       toolId="password-generator"
@@ -159,58 +166,18 @@ export default function PasswordGeneratorToolComponent() {
             </div>
 
             {/* Character toggles */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-              <label className="flex items-center gap-2 p-2 rounded-lg bg-[var(--sl-surface)] border border-[var(--sl-border)] cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={uppercase}
-                  onChange={(e) => {
-                    setUppercase(e.target.checked);
-                    handleGenerate({ uppercase: e.target.checked });
-                  }}
-                  className="accent-[var(--sl-accent)] rounded"
-                />
-                <span className="font-mono text-[var(--sl-text)]">Uppercase (A-Z)</span>
-              </label>
-
-              <label className="flex items-center gap-2 p-2 rounded-lg bg-[var(--sl-surface)] border border-[var(--sl-border)] cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={lowercase}
-                  onChange={(e) => {
-                    setLowercase(e.target.checked);
-                    handleGenerate({ lowercase: e.target.checked });
-                  }}
-                  className="accent-[var(--sl-accent)] rounded"
-                />
-                <span className="font-mono text-[var(--sl-text)]">Lowercase (a-z)</span>
-              </label>
-
-              <label className="flex items-center gap-2 p-2 rounded-lg bg-[var(--sl-surface)] border border-[var(--sl-border)] cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={numbers}
-                  onChange={(e) => {
-                    setNumbers(e.target.checked);
-                    handleGenerate({ numbers: e.target.checked });
-                  }}
-                  className="accent-[var(--sl-accent)] rounded"
-                />
-                <span className="font-mono text-[var(--sl-text)]">Numbers (0-9)</span>
-              </label>
-
-              <label className="flex items-center gap-2 p-2 rounded-lg bg-[var(--sl-surface)] border border-[var(--sl-border)] cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={symbols}
-                  onChange={(e) => {
-                    setSymbols(e.target.checked);
-                    handleGenerate({ symbols: e.target.checked });
-                  }}
-                  className="accent-[var(--sl-accent)] rounded"
-                />
-                <span className="font-mono text-[var(--sl-text)]">Symbols (!@#$)</span>
-              </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {charOptions.map((opt, i) => (
+                <label key={i} className="flex items-center gap-2 p-2 rounded-lg bg-[var(--sl-surface)] border border-[var(--sl-border)] cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={opt.checked}
+                    onChange={(e) => opt.change(e.target.checked)}
+                    className="accent-[var(--sl-accent)] rounded"
+                  />
+                  <span className="font-mono text-[var(--sl-text)]">{opt.label}</span>
+                </label>
+              ))}
             </div>
 
             {/* Ambiguous filter */}
