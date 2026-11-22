@@ -4,8 +4,10 @@
 import { Tool } from "./types";
 import base64Tool from "./tools/base64";
 import jsonFormatterTool from "./tools/json-formatter";
+import urlEncoderTool from "./tools/url-encoder";
 
 export const allTools: Tool[] = [
   base64Tool,
-  jsonFormatterTool
+  jsonFormatterTool,
+  urlEncoderTool
 ];

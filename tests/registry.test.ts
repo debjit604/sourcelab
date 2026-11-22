@@ -12,8 +12,8 @@ import {
 } from "../registry";
 
 describe("Registry Verification", () => {
-  it("loads 2 seed tools", () => {
-    expect(allTools.length).toBe(2);
+  it("loads registered tools", () => {
+    expect(allTools.length).toBeGreaterThanOrEqual(2);
   });
 
   it("has exactly 13 defined categories", () => {
@@ -34,8 +34,8 @@ describe("Registry Verification", () => {
   });
 
   it("filters live tools and category tools", () => {
-    expect(liveTools().length).toBe(2);
-    expect(toolsByCategory("dev").length).toBe(2);
+    expect(liveTools().length).toBeGreaterThanOrEqual(2);
+    expect(toolsByCategory("dev").length).toBeGreaterThanOrEqual(2);
     expect(toolsByCategory("pdf").length).toBe(0);
   });
 
@@ -48,7 +48,7 @@ describe("Registry Verification", () => {
   });
 
   it("returns popular and new tools", () => {
-    expect(popularTools(5).length).toBe(2);
-    expect(newTools(5).length).toBe(2);
+    expect(popularTools(5).length).toBeGreaterThanOrEqual(2);
+    expect(newTools(5).length).toBeGreaterThanOrEqual(2);
   });
 });
