@@ -1,0 +1,829 @@
+{
+  "site": {
+    "name": "SourceLab",
+    "tagline": "Tumhari file tumhare browser me hi process hoti hai — server pe kabhi nahi jaati.",
+    "domain": "sourcelab.dev",
+    "totalLive": 55
+  },
+  "categories": [
+    {
+      "id": "pdf",
+      "name": "PDF Tools",
+      "tagline": "PDF merge, compress aur convert karo bina upload kiye",
+      "color": "#EF4444",
+      "icon": "file-text",
+      "count": 2
+    },
+    {
+      "id": "image",
+      "name": "Image Tools",
+      "tagline": "Photo resize, compress aur format badlo instantly",
+      "color": "#3B82F6",
+      "icon": "image",
+      "count": 4
+    },
+    {
+      "id": "video",
+      "name": "Video Tools",
+      "tagline": "Video trim, compress aur convert karo browser me",
+      "color": "#8B5CF6",
+      "icon": "video",
+      "count": 0
+    },
+    {
+      "id": "audio",
+      "name": "Audio Tools",
+      "tagline": "Audio cut, convert aur compress karo",
+      "color": "#EC4899",
+      "icon": "headphones",
+      "count": 0
+    },
+    {
+      "id": "ai",
+      "name": "AI Tools",
+      "tagline": "Browser me hi local AI models chalao private tarike se",
+      "color": "#A855F7",
+      "icon": "sparkles",
+      "count": 0
+    },
+    {
+      "id": "dev",
+      "name": "Developer Tools",
+      "tagline": "Code format, decode aur debug karo bina server ke",
+      "color": "#22D3EE",
+      "icon": "code",
+      "count": 10
+    },
+    {
+      "id": "security",
+      "name": "Security Tools",
+      "tagline": "Hash generate karo, password check karo bina leak ke",
+      "color": "#10B981",
+      "icon": "shield-check",
+      "count": 16
+    },
+    {
+      "id": "text",
+      "name": "Text Tools",
+      "tagline": "Word count, diff aur text formatting tools",
+      "color": "#F59E0B",
+      "icon": "type",
+      "count": 9
+    },
+    {
+      "id": "calc",
+      "name": "Calculators",
+      "tagline": "EMI, GST aur financial hisaab-kitaab turant",
+      "color": "#14B8A6",
+      "icon": "calculator",
+      "count": 7
+    },
+    {
+      "id": "india",
+      "name": "India Utilities",
+      "tagline": "Aadhaar mask, IFSC lookup aur daily Bharat utilities",
+      "color": "#F97316",
+      "icon": "landmark",
+      "count": 2
+    },
+    {
+      "id": "util",
+      "name": "General Utilities",
+      "tagline": "Rozmarra ke daily quick tools tumhari ungliyo par",
+      "color": "#6366F1",
+      "icon": "wrench",
+      "count": 4
+    },
+    {
+      "id": "ocr",
+      "name": "OCR Tools",
+      "tagline": "Image aur scan document se text nikalo bina server bheje",
+      "color": "#06B6D4",
+      "icon": "scan-text",
+      "count": 0
+    },
+    {
+      "id": "gen",
+      "name": "Generators",
+      "tagline": "QR code, barcode aur placeholder instantly banao",
+      "color": "#E11D48",
+      "icon": "qr-code",
+      "count": 1
+    }
+  ],
+  "tools": [
+    {
+      "id": "aadhaar-masker",
+      "name": "Masked Aadhaar Card Tool",
+      "category": "india",
+      "slug": "/india/aadhaar-masker",
+      "tagline": "Aadhaar ke pehle 8 digits mask karo privacy aur UIDAI guidelines ke liye",
+      "privacy": "client",
+      "status": "live",
+      "popular": 96,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "age-calculator",
+      "name": "Age Calculator",
+      "category": "calc",
+      "slug": "/calc/age-calculator",
+      "tagline": "Exact umar saal, mahine, din aur agle birthday ka countdown dekho",
+      "privacy": "client",
+      "status": "live",
+      "popular": 95,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "aspect-ratio",
+      "name": "Aspect Ratio Calculator",
+      "category": "image",
+      "slug": "/image/aspect-ratio",
+      "tagline": "Dimensions ka aspect ratio nikaalo aur proportional scaling karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 87,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "base64",
+      "name": "Base64 Encoder / Decoder",
+      "category": "dev",
+      "slug": "/dev/base64",
+      "tagline": "Text aur files ko Base64 me convert karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 85,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "bmi-calculator",
+      "name": "BMI & Ideal Weight Calculator",
+      "category": "calc",
+      "slug": "/calc/bmi-calculator",
+      "tagline": "Body Mass Index (BMI), Asian WHO guidelines aur ideal weight jano",
+      "privacy": "client",
+      "status": "live",
+      "popular": 91,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "caesar-rot",
+      "name": "Caesar Cipher & ROT Decoder",
+      "category": "security",
+      "slug": "/security/caesar-rot",
+      "tagline": "Caesar cipher encode/decode karo aur saare 25 ROT shifts ek sath dekho",
+      "privacy": "client",
+      "status": "live",
+      "popular": 90,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "case-converter",
+      "name": "Case Converter",
+      "category": "text",
+      "slug": "/text/case-converter",
+      "tagline": "UPPER, lower, Title, camelCase aur snake_case me text convert karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 85,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "color-picker",
+      "name": "Color Converter & Palette",
+      "category": "dev",
+      "slug": "/dev/color-picker",
+      "tagline": "HEX, RGB, HSL aur CMYK convert karo, contrast aur shades dekho",
+      "privacy": "client",
+      "status": "live",
+      "popular": 91,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "compound-interest",
+      "name": "Compound Interest Calculator",
+      "category": "calc",
+      "slug": "/calc/compound-interest",
+      "tagline": "Investment ka compound interest aur yearly wealth growth calculate karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 93,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "cookie-analyzer",
+      "name": "HTTP Cookie Security Analyzer",
+      "category": "security",
+      "slug": "/security/cookie-analyzer",
+      "tagline": "Set-Cookie headers parse karo aur Secure, HttpOnly, SameSite flags check karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 90,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "csp-evaluator",
+      "name": "Content Security Policy (CSP) Evaluator",
+      "category": "security",
+      "slug": "/security/csp-evaluator",
+      "tagline": "CSP directives parse karo aur XSS / bypass vulnerabilities dhundo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 93,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "csv-json",
+      "name": "CSV to JSON & JSON to CSV",
+      "category": "dev",
+      "slug": "/dev/csv-json",
+      "tagline": "CSV spreadsheets aur JSON arrays ko aapas me convert karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 87,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "cvss-calculator",
+      "name": "CVSS v3.1 Severity Calculator",
+      "category": "security",
+      "slug": "/security/cvss-calculator",
+      "tagline": "Security vulnerability ka CVSS 3.1 score aur vector string banao",
+      "privacy": "client",
+      "status": "live",
+      "popular": 94,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "diff-checker",
+      "name": "Text & Code Diff Checker",
+      "category": "dev",
+      "slug": "/dev/diff-checker",
+      "tagline": "Do text ya code files ka difference dhundo side-by-side",
+      "privacy": "client",
+      "status": "live",
+      "popular": 86,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "dns-lookup",
+      "name": "DNS over HTTPS (DoH) Lookup",
+      "category": "security",
+      "slug": "/security/dns-lookup",
+      "tagline": "Domain ke A, MX, TXT, SPF aur DMARC records live check karo",
+      "privacy": "third-party",
+      "status": "live",
+      "popular": 94,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "emi-calculator",
+      "name": "EMI Calculator",
+      "category": "calc",
+      "slug": "/calc/emi-calculator",
+      "tagline": "Home, car aur personal loan ki monthly EMI aur interest calculate karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 95,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "fancy-fonts",
+      "name": "Fancy Unicode Fonts Generator",
+      "category": "text",
+      "slug": "/text/fancy-fonts",
+      "tagline": "Social media bio aur gaming tags ke liye stylish Unicode fonts banao",
+      "privacy": "client",
+      "status": "live",
+      "popular": 92,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "find-replace",
+      "name": "Find and Replace Text",
+      "category": "text",
+      "slug": "/text/find-replace",
+      "tagline": "Plain text ya Regex patterns dhundo aur replace karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 87,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "gst-calculator",
+      "name": "GST Calculator India",
+      "category": "india",
+      "slug": "/india/gst-calculator",
+      "tagline": "GST inclusive aur exclusive calculation karo — CGST, SGST & IGST",
+      "privacy": "client",
+      "status": "live",
+      "popular": 88,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "hash-generator",
+      "name": "Hash Generator",
+      "category": "security",
+      "slug": "/security/hash-generator",
+      "tagline": "MD5, SHA-1, SHA-256, SHA-384 aur SHA-512 hashes instantly banao",
+      "privacy": "client",
+      "status": "live",
+      "popular": 92,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "hash-identifier",
+      "name": "Hash Type Identifier",
+      "category": "security",
+      "slug": "/security/hash-identifier",
+      "tagline": "Unknown hash ka algorithm, type aur Hashcat mode pehchano",
+      "privacy": "client",
+      "status": "live",
+      "popular": 91,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "header-analyzer",
+      "name": "HTTP Security Header Analyzer",
+      "category": "security",
+      "slug": "/security/header-analyzer",
+      "tagline": "HTTP response headers check karo aur security grade (A+ to F) nikalo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 92,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "html-entity",
+      "name": "HTML Entity Encoder & Decoder",
+      "category": "dev",
+      "slug": "/dev/html-entity",
+      "tagline": "Special characters aur HTML entities ke beech encode/decode karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 88,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "image-compress",
+      "name": "Image Compressor",
+      "category": "image",
+      "slug": "/image/image-compress",
+      "tagline": "JPG, PNG aur WebP images bina quality khoye compress karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 98,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "image-resize",
+      "name": "Image Resizer",
+      "category": "image",
+      "slug": "/image/image-resize",
+      "tagline": "Photo ki dimensions (width x height) ya percentage badlo instantly",
+      "privacy": "client",
+      "status": "live",
+      "popular": 91,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "js-analyzer",
+      "name": "JS Secret & Endpoint Analyzer",
+      "category": "security",
+      "slug": "/security/js-analyzer",
+      "tagline": "JavaScript, HAR aur source maps me secrets aur hidden API endpoints dhundo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 95,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "json-formatter",
+      "name": "JSON Formatter",
+      "category": "dev",
+      "slug": "/dev/json-formatter",
+      "tagline": "Beautify, minify aur error dhundo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 90,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "jwt-decoder",
+      "name": "JWT Decoder",
+      "category": "dev",
+      "slug": "/dev/jwt-decoder",
+      "tagline": "JWT decode karo, header, payload aur expiry dekho",
+      "privacy": "client",
+      "status": "live",
+      "popular": 88,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "lorem-generator",
+      "name": "Lorem Ipsum Generator",
+      "category": "text",
+      "slug": "/text/lorem-generator",
+      "tagline": "Dummy placeholder text generate karo — paragraphs, sentences ya words",
+      "privacy": "client",
+      "status": "live",
+      "popular": 84,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "magic-decoder",
+      "name": "Magic Multi-Layer Decoder",
+      "category": "security",
+      "slug": "/security/magic-decoder",
+      "tagline": "Unknown encoded text ko automatically pehchano aur decode karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 93,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "markdown-preview",
+      "name": "Markdown Previewer",
+      "category": "dev",
+      "slug": "/dev/markdown-preview",
+      "tagline": "Markdown likho aur real-time formatted HTML preview dekho",
+      "privacy": "client",
+      "status": "live",
+      "popular": 92,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "morse-code",
+      "name": "Morse Code Translator & Player",
+      "category": "security",
+      "slug": "/security/morse-code",
+      "tagline": "Text ko Morse code me convert karo aur real audio beeps suno",
+      "privacy": "client",
+      "status": "live",
+      "popular": 88,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "number-to-words",
+      "name": "Number to Words Converter",
+      "category": "calc",
+      "slug": "/calc/number-to-words",
+      "tagline": "Numbers ko Indian (Lakhs/Crores) aur Cheque words me instantly convert karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 91,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "password-generator",
+      "name": "Password Generator",
+      "category": "security",
+      "slug": "/security/password-generator",
+      "tagline": "Strong, secure aur unbreakable passwords generate karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 94,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "password-strength",
+      "name": "Password Strength Checker",
+      "category": "security",
+      "slug": "/security/password-strength",
+      "tagline": "Password ki entropy aur crack time check karo bina leak ke",
+      "privacy": "client",
+      "status": "live",
+      "popular": 94,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "pdf-merge",
+      "name": "PDF Merge",
+      "category": "pdf",
+      "slug": "/pdf/pdf-merge",
+      "tagline": "Multiple PDF files ko ek single PDF me jodo — zero upload",
+      "privacy": "client",
+      "status": "live",
+      "popular": 92,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "pdf-split",
+      "name": "PDF Splitter",
+      "category": "pdf",
+      "slug": "/pdf/pdf-split",
+      "tagline": "PDF se pages alag karo ya specific page range extract karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 93,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "percentage-calculator",
+      "name": "Percentage Calculator",
+      "category": "calc",
+      "slug": "/calc/percentage-calculator",
+      "tagline": "Percentage, discount, growth aur difference instantly calculate karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 90,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "qr-code",
+      "name": "QR Code Generator",
+      "category": "gen",
+      "slug": "/gen/qr-code",
+      "tagline": "Custom colors, sizes aur formats me QR code instantly banao",
+      "privacy": "client",
+      "status": "live",
+      "popular": 96,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "random-picker",
+      "name": "Random Picker & Shuffler",
+      "category": "util",
+      "slug": "/util/random-picker",
+      "tagline": "List se winner chuno, names shuffle karo, dice roll ya coin flip karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 88,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "regex-tester",
+      "name": "Regular Expression Tester",
+      "category": "dev",
+      "slug": "/dev/regex-tester",
+      "tagline": "Regex pattern test karo, matches highlight aur capture groups dekho",
+      "privacy": "client",
+      "status": "live",
+      "popular": 94,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "remove-duplicates",
+      "name": "Remove Duplicate Lines",
+      "category": "text",
+      "slug": "/text/remove-duplicates",
+      "tagline": "Text list aur lines se duplicates hatao aur clean list banao",
+      "privacy": "client",
+      "status": "live",
+      "popular": 86,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "sip-calculator",
+      "name": "SIP Calculator",
+      "category": "calc",
+      "slug": "/calc/sip-calculator",
+      "tagline": "Mutual fund SIP aur lumpsum returns calculate karo turant",
+      "privacy": "client",
+      "status": "live",
+      "popular": 94,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "slug-generator",
+      "name": "URL Slug Generator",
+      "category": "text",
+      "slug": "/text/slug-generator",
+      "tagline": "SEO-friendly clean URL slugs aur kebab-case generate karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 84,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "svg-to-png",
+      "name": "SVG to PNG Converter",
+      "category": "image",
+      "slug": "/image/svg-to-png",
+      "tagline": "SVG vector graphics ko high-resolution PNG ya JPG me convert karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 90,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "text-binary",
+      "name": "Text to Binary Converter",
+      "category": "security",
+      "slug": "/security/text-binary",
+      "tagline": "Text aur binary (0s & 1s) ke beech instantly convert aur format karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 85,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "text-sorter",
+      "name": "Text & List Sorter",
+      "category": "text",
+      "slug": "/text/text-sorter",
+      "tagline": "Lines ko alphabetically, naturally sort karo aur duplicates hatao",
+      "privacy": "client",
+      "status": "live",
+      "popular": 89,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "timestamp-converter",
+      "name": "Timestamp Converter",
+      "category": "util",
+      "slug": "/util/timestamp-converter",
+      "tagline": "Unix epoch timestamp aur human date ke beech do-tarfa convert karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 90,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "totp-generator",
+      "name": "2FA TOTP Token Generator",
+      "category": "security",
+      "slug": "/security/totp-generator",
+      "tagline": "RFC 6238 2FA codes generate aur test karo bina internet/server ke",
+      "privacy": "client",
+      "status": "live",
+      "popular": 92,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "typing-test",
+      "name": "Typing Speed Test",
+      "category": "text",
+      "slug": "/text/typing-test",
+      "tagline": "Custom text paste karo aur accurate WPM aur accuracy test karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 92,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "unit-converter",
+      "name": "Universal Unit Converter",
+      "category": "util",
+      "slug": "/util/unit-converter",
+      "tagline": "Length, weight, temperature, area aur data bytes instantly convert karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 89,
+      "addedOn": "2026-11-23"
+    },
+    {
+      "id": "url-encoder",
+      "name": "URL Encoder / Decoder",
+      "category": "dev",
+      "slug": "/dev/url-encoder",
+      "tagline": "URL aur query parameters encode ya decode karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 80,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "uuid-generator",
+      "name": "UUID / GUID Generator",
+      "category": "util",
+      "slug": "/util/uuid-generator",
+      "tagline": "v4 UUIDs generate karo instantly — single ya bulk me",
+      "privacy": "client",
+      "status": "live",
+      "popular": 80,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "word-counter",
+      "name": "Word Counter",
+      "category": "text",
+      "slug": "/text/word-counter",
+      "tagline": "Words, characters, reading time aur keyword density count karo",
+      "privacy": "client",
+      "status": "live",
+      "popular": 90,
+      "addedOn": "2026-11-22"
+    },
+    {
+      "id": "xor-tool",
+      "name": "XOR Cipher & Decoder",
+      "category": "security",
+      "slug": "/security/xor-tool",
+      "tagline": "Bitwise XOR encryption, repeating-key cipher aur brute-force",
+      "privacy": "client",
+      "status": "live",
+      "popular": 89,
+      "addedOn": "2026-11-23"
+    }
+  ],
+  "homeSections": [
+    "Hero",
+    "TrustBadges",
+    "Marquee",
+    "SecurityLab",
+    "RecentAndFavs",
+    "CategoryGrid",
+    "HowItWorks",
+    "PopularTools",
+    "NewTools"
+  ],
+  "tokens": {
+    "colors": {
+      "bg": "#0B0F1A",
+      "surface": "#121828",
+      "border": "#232C42",
+      "text": "#E6EAF2",
+      "muted": "#8B95AD",
+      "accent": "#22D3EE",
+      "success": "#34D399",
+      "warning": "#FBBF24",
+      "error": "#F87171"
+    },
+    "fonts": {
+      "heading": "Space Grotesk",
+      "body": "Inter",
+      "code": "JetBrains Mono"
+    },
+    "radius": {
+      "inputs": "10px",
+      "cards": "14px",
+      "dropzone": "16px"
+    }
+  },
+  "featured": [
+    {
+      "id": "typing-test",
+      "name": "Typing Speed Test",
+      "reason": "Real-time WPM & accuracy test with custom paste, Indic grapheme segmentation & SVG progress charts."
+    },
+    {
+      "id": "js-analyzer",
+      "name": "JS Secret & Endpoint Analyzer",
+      "reason": "Scans JavaScript bundles and source maps in Web Workers for 14+ secret patterns with Shannon entropy."
+    },
+    {
+      "id": "dns-lookup",
+      "name": "DNS over HTTPS (DoH)",
+      "reason": "Direct client-side DNS lookup querying A, AAAA, MX, TXT, CAA, SOA and SPF/DMARC validation via Cloudflare/Google."
+    },
+    {
+      "id": "header-analyzer",
+      "name": "Security Header Grader",
+      "reason": "Instant HTTP security header posture grading (HSTS, CSP, Permissions-Policy) with actionable fix recommendations."
+    },
+    {
+      "id": "csp-evaluator",
+      "name": "CSP Evaluator",
+      "reason": "Evaluates Content Security Policies for unsafe-inline, unsafe-eval, and injection vectors."
+    },
+    {
+      "id": "cookie-analyzer",
+      "name": "Cookie Security Auditor",
+      "reason": "Parses Set-Cookie directives to check Secure, HttpOnly, SameSite, and prefix hygiene (__Host-/__Secure-)."
+    },
+    {
+      "id": "image-compress",
+      "name": "Image Compressor",
+      "reason": "Client-side image compression using canvas and browser compression libraries with live before/after size comparisons."
+    },
+    {
+      "id": "pdf-merge",
+      "name": "PDF Merge",
+      "reason": "Combines multiple PDF files directly inside the browser using pdf-lib with drag-and-drop page ordering."
+    },
+    {
+      "id": "diff-checker",
+      "name": "Diff Checker",
+      "reason": "Side-by-side and unified text diff highlighting added/removed lines and characters locally."
+    },
+    {
+      "id": "aadhaar-masker",
+      "name": "Aadhaar Masker",
+      "reason": "Offline client-side Aadhaar card number detection and visual masking complying with privacy regulations."
+    },
+    {
+      "id": "totp-generator",
+      "name": "2FA TOTP Generator",
+      "reason": "Generates standard RFC 6238 time-based one-time passwords entirely offline without secret leakage."
+    },
+    {
+      "id": "cvss-calculator",
+      "name": "CVSS v3.1 Calculator",
+      "reason": "Interactive Common Vulnerability Scoring System calculator with real-time vector string generation."
+    }
+  ],
+  "securityLab": [
+    "js-analyzer",
+    "header-analyzer",
+    "csp-evaluator",
+    "cookie-analyzer",
+    "dns-lookup",
+    "website-snapshot",
+    "totp-generator",
+    "cvss-calculator",
+    "hash-identifier",
+    "password-strength"
+  ]
+}
