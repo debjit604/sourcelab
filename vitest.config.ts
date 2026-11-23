@@ -10,7 +10,6 @@ export default defineConfig({
     pool: "threads",
     isolate: false,
     maxWorkers: 2,
-    minWorkers: 1,
   },
   resolve: {
     alias: {
