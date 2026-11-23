@@ -23,9 +23,18 @@ export function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Footer Navigation" className="flex flex-wrap gap-6 text-sm text-[var(--sl-muted)]">
+          <nav aria-label="Footer Navigation" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--sl-muted)]">
             <Link href="/privacy" className="hover:text-[var(--sl-accent)] transition-colors">
               Privacy Policy
+            </Link>
+            <Link href="/recon-terms" className="hover:text-[var(--sl-accent)] transition-colors">
+              Terms & AUP
+            </Link>
+            <Link href="/bot" className="hover:text-[var(--sl-accent)] transition-colors">
+              Bot Info
+            </Link>
+            <Link href="/abuse" className="hover:text-[var(--sl-accent)] transition-colors">
+              Abuse & Opt-Out
             </Link>
             <Link href="/about" className="hover:text-[var(--sl-accent)] transition-colors">
               About

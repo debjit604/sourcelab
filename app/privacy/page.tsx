@@ -46,6 +46,20 @@ export default function PrivacyPage() {
           </p>
         </div>
 
+        <div className="p-5 rounded-2xl bg-[rgba(251,191,36,0.06)] border border-[rgba(251,191,36,0.2)] space-y-2">
+          <div className="flex items-center gap-2 text-sm font-semibold text-[var(--sl-warning)]">
+            <ShieldCheck className="w-4 h-4 text-[var(--sl-warning)]" />
+            <span>3. Server-Assisted Recon Tools Privacy Disclosure</span>
+          </div>
+          <p className="text-xs md:text-sm text-[var(--sl-muted)] leading-relaxed pl-6">
+            Hamare 99% tools 100% client-side hain. Specific server-assisted tools jaise <strong className="text-[var(--sl-text)]">Website Snapshot</strong> ke liye, headless browser securely target URL fetch karta hai:
+          </p>
+          <ul className="list-disc list-inside text-xs text-[var(--sl-muted)] pl-8 space-y-1">
+            <li><strong>10-Minute Ephemeral Lifecycle:</strong> Sabhi screenshots aur downloaded assets RAM me rehte hain aur 10 minute baad automatically permanently wipe ho jaate hain.</li>
+            <li><strong>7-Day Abuse Logging:</strong> Malicious automated misuse aur DDoS rokhne ke liye, target domain, timestamp, aur salted SHA-256 hashed IP 7 din tak retain hoti hai. Page content ya secrets kabhi log nahi hote.</li>
+          </ul>
+        </div>
+
         <div className="p-5 rounded-2xl bg-[var(--sl-surface)] border border-[var(--sl-border)] space-y-3">
           <div className="flex items-center gap-2 text-sm font-semibold text-[var(--sl-text)]">
             <Database className="w-4 h-4 text-[var(--sl-accent)]" />
