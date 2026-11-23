@@ -13,17 +13,18 @@ export function OrganicLoader() {
   useEffect(() => {
     // Only run if not already shown in current session
     if (typeof window !== "undefined" && sessionStorage.getItem("sl_loader_shown")) {
-      setDissolved(true);
-      return;
+      const t = setTimeout(() => setDissolved(true), 0);
+      return () => clearTimeout(t);
     }
-    setMounted(true);
 
-    const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const rm = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (rm) {
       sessionStorage.setItem("sl_loader_shown", "1");
-      setDissolved(true);
-      return;
+      const t = setTimeout(() => setDissolved(true), 0);
+      return () => clearTimeout(t);
     }
+
+    const mountTimer = setTimeout(() => setMounted(true), 0);
 
     const canvas = canvasRef.current;
     const loader = loaderRef.current;
@@ -137,6 +138,7 @@ export function OrganicLoader() {
     };
 
     return () => {
+      clearTimeout(mountTimer);
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animId);
     };

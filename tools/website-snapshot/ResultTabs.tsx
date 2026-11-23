@@ -132,6 +132,7 @@ export function ResultTabs({ manifest }: ResultTabsProps) {
             </div>
           </div>
           <div className="border border-[var(--sl-border)] rounded-xl overflow-hidden bg-[var(--sl-bg)] flex justify-center p-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={getScreenshotApiUrl(manifest.jobId, screenshotView)}
               alt={`Snapshot (${screenshotView})`}

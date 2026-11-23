@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { HeroComparison } from "./HeroComparison";
-import { ShieldCheck, Zap, Lock, Sparkles, ArrowRight, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
 interface HeroSpatialProps {
   totalTools: number;

@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Bot, Shield, FileText, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -59,7 +60,7 @@ Disallow: /`}
             <span>Opt-Out & Abuse Contact</span>
           </h2>
           <p className="text-xs md:text-sm text-[var(--sl-muted)] leading-relaxed">
-            If you wish to permanently block your domain from all SourceLab security scanning tools, or if you suspect abusive activity, please visit our <a href="/abuse" className="text-[var(--sl-accent)] underline">Abuse & Opt-Out Portal</a> or contact us directly at <span className="font-mono text-[var(--sl-text)]">abuse@sourcelab.io</span>.
+            If you wish to permanently block your domain from all SourceLab security scanning tools, or if you suspect abusive activity, please visit our <Link href="/abuse" className="text-[var(--sl-accent)] underline">Abuse & Opt-Out Portal</Link> or contact us directly at <span className="font-mono text-[var(--sl-text)]">abuse@sourcelab.io</span>.
           </p>
         </div>
       </div>
