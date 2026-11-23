@@ -7,6 +7,10 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     globals: true,
+    pool: "threads",
+    isolate: false,
+    maxWorkers: 2,
+    minWorkers: 1,
   },
   resolve: {
     alias: {
