@@ -10,14 +10,19 @@ export async function verifyTurnstileToken(
   remoteIp?: string,
   secretKey?: string
 ): Promise<TurnstileVerifyResult> {
+  const isProd = process.env.NODE_ENV === "production";
   const secret = secretKey || process.env.TURNSTILE_SECRET_KEY;
 
-  // Test mode bypass
-  if (process.env.RECON_TEST_MODE === "true" || secret === "test-secret" || !secret) {
+  // Test mode bypass is STRICTLY forbidden when running in production
+  if (!isProd && (process.env.RECON_TEST_MODE === "true" || secret === "test-secret" || !secret)) {
     if (token === "invalid-token") {
       return { success: false, error: "Invalid test turnstile token" };
     }
     return { success: true };
+  }
+
+  if (!secret) {
+    return { success: false, error: "Turnstile secret key is not configured" };
   }
 
   if (!token) {

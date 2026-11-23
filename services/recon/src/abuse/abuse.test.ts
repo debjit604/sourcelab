@@ -19,6 +19,43 @@ describe("Abuse Controls Test Suite", () => {
       expect(res.success).toBe(false);
       expect(res.error).toContain("Invalid test turnstile token");
     });
+
+    it("refuses test-mode bypass when NODE_ENV is production even if RECON_TEST_MODE is true", async () => {
+      const prevEnv = process.env.NODE_ENV;
+      const prevMode = process.env.RECON_TEST_MODE;
+      const envObj = process.env as Record<string, string | undefined>;
+      try {
+        envObj.NODE_ENV = "production";
+        envObj.RECON_TEST_MODE = "true";
+
+        // Without a configured secret in production, it must refuse
+        const resNoSecret = await verifyTurnstileToken("some-token", "1.2.3.4", undefined);
+        expect(resNoSecret.success).toBe(false);
+        expect(resNoSecret.error).toContain("Turnstile secret key is not configured");
+
+        // Without a token in production, it must reject
+        const resNoToken = await verifyTurnstileToken(undefined, "1.2.3.4", "real-secret-123");
+        expect(resNoToken.success).toBe(false);
+        expect(resNoToken.error).toContain("Missing Turnstile verification token");
+      } finally {
+        envObj.NODE_ENV = prevEnv;
+        envObj.RECON_TEST_MODE = prevMode;
+      }
+    });
+
+    it("refuses test-mode bypass when NODE_ENV is production even if secret is test-secret", async () => {
+      const prevEnv = process.env.NODE_ENV;
+      const envObj = process.env as Record<string, string | undefined>;
+      try {
+        envObj.NODE_ENV = "production";
+        // When NODE_ENV=production, passing "test-secret" does NOT bypass: missing token is caught
+        const res = await verifyTurnstileToken(undefined, "1.2.3.4", "test-secret");
+        expect(res.success).toBe(false);
+        expect(res.error).toContain("Missing Turnstile verification token");
+      } finally {
+        envObj.NODE_ENV = prevEnv;
+      }
+    });
   });
 
   describe("Rate Limiting", () => {
