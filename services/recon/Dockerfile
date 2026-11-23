@@ -13,14 +13,14 @@ WORKDIR /app
 # Install pnpm
 RUN npm install -g pnpm@9
 
-# Copy dependency specifications (supports build context from either services/recon or repo root)
-COPY package.json services/recon/package.jso[n] ./package.json
+# Copy dependency specifications
+COPY services/recon/package.json ./package.json
 
 # Install dependencies (Playwright is already pre-installed in base image)
 RUN pnpm install --prod=false
 
 # Copy source code and configuration
-COPY src services/recon/sr[c] ./src/
+COPY services/recon/src ./src
 
 # Create non-root directories and set permissions for pwuser
 RUN chown -R pwuser:pwuser /app
