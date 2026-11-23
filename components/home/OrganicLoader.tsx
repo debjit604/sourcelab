@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 
 export function OrganicLoader() {
   const [mounted, setMounted] = useState(false);
@@ -10,21 +10,44 @@ export function OrganicLoader() {
   const loaderRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  const dismiss = useCallback(() => {
+    try {
+      sessionStorage.setItem("sl_loader_shown", "1");
+    } catch {
+      // Ignore private browsing storage errors
+    }
+    setDissolved(true);
+  }, []);
+
+  // Phase 1: Mount check on client
   useEffect(() => {
-    // Only run if not already shown in current session
-    if (typeof window !== "undefined" && sessionStorage.getItem("sl_loader_shown")) {
-      const t = setTimeout(() => setDissolved(true), 0);
-      return () => clearTimeout(t);
+    if (typeof window === "undefined") return;
+
+    try {
+      if (sessionStorage.getItem("sl_loader_shown")) {
+        const t = setTimeout(() => setDissolved(true), 0);
+        return () => clearTimeout(t);
+      }
+    } catch {
+      // Storage unavailable
     }
 
-    const rm = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (rm) {
-      sessionStorage.setItem("sl_loader_shown", "1");
+      try {
+        sessionStorage.setItem("sl_loader_shown", "1");
+      } catch {}
       const t = setTimeout(() => setDissolved(true), 0);
       return () => clearTimeout(t);
     }
 
     const mountTimer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(mountTimer);
+  }, []);
+
+  // Phase 2: Animation execution once DOM elements are mounted
+  useEffect(() => {
+    if (!mounted || dissolved) return;
 
     const canvas = canvasRef.current;
     const loader = loaderRef.current;
@@ -32,6 +55,16 @@ export function OrganicLoader() {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    // Hard safety timer: ensure loader dissolves no matter what
+    const safetyTimer = setTimeout(() => {
+      dismiss();
+    }, 2200);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") dismiss();
+    };
+    window.addEventListener("keydown", handleKeyDown);
 
     let animId: number;
     const resizeCanvas = () => {
@@ -41,7 +74,7 @@ export function OrganicLoader() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Seeded multi-frequency organic blob generator
+    // Multi-frequency organic blob points
     const seedA = Math.random() * 6.28;
     const seedB = Math.random() * 6.28;
     const seedC = Math.random() * 6.28;
@@ -70,8 +103,8 @@ export function OrganicLoader() {
       );
     };
 
-    // Phase 1: Progress counting
-    const duration = 1400;
+    // Progress counter (1100ms)
+    const duration = 1100;
     const startTime = performance.now();
 
     const updateProgress = (now: number) => {
@@ -82,14 +115,13 @@ export function OrganicLoader() {
       if (elapsed < duration) {
         animId = requestAnimationFrame(updateProgress);
       } else {
-        // Start organic burn dissolve transition
         startBurnDissolve();
       }
     };
 
     animId = requestAnimationFrame(updateProgress);
 
-    // Phase 2: Procedural burn dissolve
+    // Organic burn dissolve transition (750ms)
     const startBurnDissolve = () => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
@@ -97,7 +129,7 @@ export function OrganicLoader() {
       const cy = vh * 0.45;
       const maxRadius = Math.hypot(Math.max(cx, vw - cx), Math.max(cy, vh - cy)) * 1.25;
 
-      const burnDuration = 1000;
+      const burnDuration = 750;
       const burnStart = performance.now();
 
       const burnStep = (now: number) => {
@@ -106,8 +138,9 @@ export function OrganicLoader() {
         const pts = getBlobPoints(cx, cy, ease, maxRadius);
         const pathD = pointsToPathD(pts);
 
-        // Cut through loader stage
+        // Cut through loader stage & fade opacity as graceful fallback
         loader.style.clipPath = `path(evenodd, "M0,0H${vw}V${vh}H0Z ${pathD}")`;
+        loader.style.opacity = String(Math.max(0, 1 - ease));
 
         // Render glowing ember burning edge
         ctx.clearRect(0, 0, vw, vh);
@@ -129,8 +162,7 @@ export function OrganicLoader() {
         if (lin < 1) {
           animId = requestAnimationFrame(burnStep);
         } else {
-          sessionStorage.setItem("sl_loader_shown", "1");
-          setDissolved(true);
+          dismiss();
         }
       };
 
@@ -138,11 +170,12 @@ export function OrganicLoader() {
     };
 
     return () => {
-      clearTimeout(mountTimer);
+      clearTimeout(safetyTimer);
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("keydown", handleKeyDown);
       cancelAnimationFrame(animId);
     };
-  }, []);
+  }, [mounted, dissolved, dismiss]);
 
   if (dissolved || !mounted) return null;
 
@@ -153,7 +186,9 @@ export function OrganicLoader() {
       <div
         ref={loaderRef}
         id="loader-stage"
-        className="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-[#050710] select-none pointer-events-auto"
+        onClick={dismiss}
+        title="Click to skip"
+        className="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-[#050710] select-none cursor-pointer transition-opacity duration-300"
       >
         {/* Glowing HorizonX Petals / Generating Orb */}
         <div className="relative w-28 h-28 md:w-36 md:h-36 mb-6">
@@ -206,7 +241,7 @@ export function OrganicLoader() {
         </div>
 
         <div className="absolute right-6 bottom-5 font-mono text-[11px] text-white/30 tracking-widest uppercase">
-          SourceLab • Privacy Suite
+          SourceLab • Click to skip
         </div>
       </div>
 
