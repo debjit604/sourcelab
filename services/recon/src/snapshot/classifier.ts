@@ -61,9 +61,9 @@ const EXTENSION_MAP: Record<string, AssetFolder> = {
 
 export function sanitizeFilename(raw: string, fallback = "asset"): string {
   if (!raw || typeof raw !== "string") return fallback;
-  // Strip query string and hash
-  const clean = raw.split("?")[0].split("#")[0];
-  const basename = path.basename(clean);
+  // Normalize Windows backslashes and strip query string and hash
+  const clean = raw.split("?")[0].split("#")[0].replace(/\\/g, "/");
+  const basename = path.posix.basename(clean);
   // Remove dangerous chars
   const sanitized = basename.replace(/[^a-zA-Z0-9._-]/g, "_");
   if (!sanitized || sanitized === "." || sanitized === "..") {
@@ -83,7 +83,7 @@ export function categorizeAsset(
     pathname = rawUrl.split("?")[0];
   }
 
-  const rawExt = path.extname(pathname).toLowerCase().replace(".", "");
+  const rawExt = path.posix.extname(pathname.replace(/\\/g, "/")).toLowerCase().replace(".", "");
   const filename = sanitizeFilename(pathname, "download");
 
   // Check by extension
