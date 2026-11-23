@@ -6,6 +6,7 @@ import { runSnapshot } from "../snapshot/engine";
 import { runPassiveRecon } from "../passive";
 import { detectHiddenPaths } from "../detector";
 import { analyzeDownloadedAssets } from "../analyzer";
+import { checkSnapshotAbuse, globalConcurrency } from "../abuse";
 
 export interface ServerOptions {
   turnstileSecret?: string;
@@ -60,17 +61,39 @@ export function handleApiRequest(
     });
 
     req.on("end", async () => {
-      let body: { url?: string; options?: Record<string, unknown> } = {};
+      let body: { url?: string; turnstileToken?: string; options?: Record<string, unknown> } = {};
       try {
         body = JSON.parse(bodyText);
       } catch {
-        return sendJson(400, { error: "Invalid JSON payload" });
+        sendJson(400, { error: "Invalid JSON payload" });
+        return;
       }
 
       const targetUrl = (body.url || "").trim();
       const val = validateTargetUrl(targetUrl);
       if (!val.valid) {
-        return sendJson(400, { error: val.error });
+        sendJson(400, { error: val.error });
+        return;
+      }
+
+      const turnstileToken =
+        body.turnstileToken ||
+        (req.headers["x-turnstile-token"] as string | undefined);
+
+      const abuseResult = await checkSnapshotAbuse(
+        req,
+        targetUrl,
+        turnstileToken,
+        options.turnstileSecret
+      );
+      if (!abuseResult.allowed) {
+        if (abuseResult.headers) {
+          for (const [k, v] of Object.entries(abuseResult.headers)) {
+            res.setHeader(k, v);
+          }
+        }
+        sendJson(abuseResult.status || 403, { error: abuseResult.error });
+        return;
       }
 
       const job = jobStore.createJob(targetUrl);
@@ -80,11 +103,12 @@ export function handleApiRequest(
         jobStore.updateStatus(job.id, "failed", 100, err instanceof Error ? err.message : String(err));
       });
 
-      return sendJson(202, {
+      sendJson(202, {
         jobId: job.id,
         status: job.status,
         expiresAt: job.expiresAt,
       });
+      return;
     });
     return;
   }
@@ -173,71 +197,75 @@ export function handleApiRequest(
 
 // Background Recon Pipeline Orchestrator
 async function executeReconJob(job: ReconJob, options?: Record<string, unknown>): Promise<void> {
-  const url = job.targetUrl;
+  try {
+    const url = job.targetUrl;
 
-  jobStore.updateStatus(job.id, "resolving", 10);
+    jobStore.updateStatus(job.id, "resolving", 10);
 
-  // Phase 1: Snapshot Engine
-  jobStore.updateStatus(job.id, "loading", 25);
-  const snapshotRes = await runSnapshot({ url, ...options });
+    // Phase 1: Snapshot Engine
+    jobStore.updateStatus(job.id, "loading", 25);
+    const snapshotRes = await runSnapshot({ url, ...options });
 
-  jobStore.updateStatus(job.id, "screenshot", 45);
-  jobStore.setScreenshots(job.id, snapshotRes.screenshots);
+    jobStore.updateStatus(job.id, "screenshot", 45);
+    jobStore.setScreenshots(job.id, snapshotRes.screenshots);
 
-  // Store assets
-  jobStore.updateStatus(job.id, "collecting", 65);
-  const fileManifestList: Array<{ id: string; filename: string; folder: string; size: number; url: string }> = [];
-  for (const asset of snapshotRes.assets) {
-    const fileId = jobStore.addFile(job.id, {
-      filename: asset.filename,
-      folder: asset.folder,
-      contentType: asset.contentType,
-      data: asset.data,
-    });
-    fileManifestList.push({
-      id: fileId,
-      filename: asset.filename,
-      folder: asset.folder,
-      size: asset.size,
-      url: asset.url,
-    });
+    // Store assets
+    jobStore.updateStatus(job.id, "collecting", 65);
+    const fileManifestList: Array<{ id: string; filename: string; folder: string; size: number; url: string }> = [];
+    for (const asset of snapshotRes.assets) {
+      const fileId = jobStore.addFile(job.id, {
+        filename: asset.filename,
+        folder: asset.folder,
+        contentType: asset.contentType,
+        data: asset.data,
+      });
+      fileManifestList.push({
+        id: fileId,
+        filename: asset.filename,
+        folder: asset.folder,
+        size: asset.size,
+        url: asset.url,
+      });
+    }
+
+    // Phase 2: Passive Recon & Hidden Paths
+    jobStore.updateStatus(job.id, "analyzing", 80);
+    const [passiveData, hiddenPaths, jsAnalysis] = await Promise.all([
+      runPassiveRecon(url, snapshotRes.renderedDom || snapshotRes.rawHtml),
+      detectHiddenPaths(url),
+      analyzeDownloadedAssets(snapshotRes.assets, snapshotRes.sourceMaps),
+    ]);
+
+    // Phase 3: Manifest Assembly
+    const manifest = {
+      jobId: job.id,
+      targetUrl: url,
+      timestamp: new Date().toISOString(),
+      pagesVisited: snapshotRes.pagesVisited,
+      filesCount: fileManifestList.length,
+      files: fileManifestList,
+      screenshots: {
+        hasDesktop: !!snapshotRes.screenshots.desktop,
+        hasMobile: !!snapshotRes.screenshots.mobile,
+      },
+      dns: passiveData.dns,
+      emailSecurity: passiveData.emailSecurity,
+      subdomains: passiveData.subdomains,
+      ssl: passiveData.ssl,
+      whois: passiveData.whois,
+      seo: passiveData.seo,
+      contacts: passiveData.contacts,
+      patterns: passiveData.patterns,
+      reachability: passiveData.reachability,
+      hiddenPaths,
+      jsAnalysis,
+    };
+
+    jobStore.setManifest(job.id, manifest);
+    jobStore.updateStatus(job.id, "completed", 100);
+  } finally {
+    globalConcurrency.release();
   }
-
-  // Phase 2: Passive Recon & Hidden Paths
-  jobStore.updateStatus(job.id, "analyzing", 80);
-  const [passiveData, hiddenPaths, jsAnalysis] = await Promise.all([
-    runPassiveRecon(url, snapshotRes.renderedDom || snapshotRes.rawHtml),
-    detectHiddenPaths(url),
-    analyzeDownloadedAssets(snapshotRes.assets, snapshotRes.sourceMaps),
-  ]);
-
-  // Phase 3: Manifest Assembly
-  const manifest = {
-    jobId: job.id,
-    targetUrl: url,
-    timestamp: new Date().toISOString(),
-    pagesVisited: snapshotRes.pagesVisited,
-    filesCount: fileManifestList.length,
-    files: fileManifestList,
-    screenshots: {
-      hasDesktop: !!snapshotRes.screenshots.desktop,
-      hasMobile: !!snapshotRes.screenshots.mobile,
-    },
-    dns: passiveData.dns,
-    emailSecurity: passiveData.emailSecurity,
-    subdomains: passiveData.subdomains,
-    ssl: passiveData.ssl,
-    whois: passiveData.whois,
-    seo: passiveData.seo,
-    contacts: passiveData.contacts,
-    patterns: passiveData.patterns,
-    reachability: passiveData.reachability,
-    hiddenPaths,
-    jsAnalysis,
-  };
-
-  jobStore.setManifest(job.id, manifest);
-  jobStore.updateStatus(job.id, "completed", 100);
 }
 
 export function createReconServer(options: ServerOptions = {}): http.Server {
