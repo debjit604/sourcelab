@@ -4,18 +4,22 @@ import { categoryList, toolsByCategory, popularTools, newTools, liveTools } from
 import { ToolCard } from "@/components/ToolCard";
 import { SearchTrigger } from "@/components/SearchTrigger";
 import { RecentAndFavs } from "@/components/RecentAndFavs";
+import { Marquee } from "@/components/home/Marquee";
+import { SecurityLab } from "@/components/home/SecurityLab";
+import { HowItWorks } from "@/components/home/HowItWorks";
 import { ShieldCheck, Zap, WifiOff, Sparkles, ArrowRight } from "lucide-react";
 import { ToolIcon } from "@/components/ToolIcon";
 
 export default function HomePage() {
+  const allLive = liveTools();
   const popular = popularTools(8);
   const newlyAdded = newTools(8);
-  const liveCount = liveTools().length;
+  const liveCount = allLive.length;
 
   return (
-    <main className="w-full max-w-[var(--max-w-home)] mx-auto px-4 sm:px-6 py-12 md:py-20 space-y-16">
+    <main className="w-full max-w-[var(--max-w-home)] mx-auto px-4 sm:px-6 py-10 md:py-16 space-y-16">
       {/* Hero Section */}
-      <section className="flex flex-col items-center text-center space-y-8 pt-4 pb-8">
+      <section className="flex flex-col items-center text-center space-y-8 pt-4 pb-4">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--sl-border)] bg-[var(--sl-surface)] text-xs text-[var(--sl-accent)] shadow-sm">
           <span className="w-2 h-2 rounded-full bg-[var(--sl-accent)] animate-pulse" />
           <span className="font-mono font-medium">Privacy-First Browser Toolbox • {liveCount}+ Tools</span>
@@ -29,7 +33,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-base sm:text-lg text-[var(--sl-muted)] leading-relaxed">
-            Free, no-signup browser tools for developers, designers, aur daily users.
+            Free, no-signup browser tools for developers, security analysts, aur daily users.
             Zero cloud uploads, full offline support, unlimited private processing.
           </p>
         </div>
@@ -40,7 +44,7 @@ export default function HomePage() {
         </div>
 
         {/* Trust Badges */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full max-w-3xl pt-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full max-w-3xl pt-2">
           <div className="flex items-center gap-2.5 p-3 rounded-xl bg-[var(--sl-surface)] border border-[var(--sl-border)] text-left">
             <ShieldCheck className="w-4 h-4 text-[var(--sl-success)] shrink-0" />
             <div className="min-w-0">
@@ -69,11 +73,17 @@ export default function HomePage() {
             <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
             <div className="min-w-0">
               <p className="text-xs font-semibold text-[var(--sl-text)] truncate">100% Free</p>
-              <p className="text-[11px] text-[var(--sl-muted)] truncate">No watermark, no limit</p>
+              <p className="text-[11px] text-[var(--sl-muted)] truncate">No watermark, no signup</p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Live Tools Marquee */}
+      <Marquee tools={allLive} />
+
+      {/* Security Lab Section */}
+      <SecurityLab />
 
       {/* Recent & Starred (Client Component) */}
       <RecentAndFavs />
@@ -134,6 +144,9 @@ export default function HomePage() {
           })}
         </div>
       </section>
+
+      {/* How It Works Section */}
+      <HowItWorks />
 
       {/* Popular Tools Section */}
       {popular.length > 0 && (
