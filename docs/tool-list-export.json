@@ -3,7 +3,7 @@
     "name": "SourceLab",
     "tagline": "Tumhari file tumhare browser me hi process hoti hai — server pe kabhi nahi jaati.",
     "domain": "sourcelab.dev",
-    "totalLive": 55
+    "totalLive": 56
   },
   "categories": [
     {
@@ -60,7 +60,7 @@
       "tagline": "Hash generate karo, password check karo bina leak ke",
       "color": "#10B981",
       "icon": "shield-check",
-      "count": 16
+      "count": 17
     },
     {
       "id": "text",
@@ -696,6 +696,17 @@
       "addedOn": "2026-11-22"
     },
     {
+      "id": "website-snapshot",
+      "name": "Website Snapshot",
+      "category": "security",
+      "slug": "/security/website-snapshot",
+      "tagline": "URL ka deep snapshot, assets, screenshots aur security recon",
+      "privacy": "server",
+      "status": "live",
+      "popular": 95,
+      "addedOn": "2026-11-23"
+    },
+    {
       "id": "word-counter",
       "name": "Word Counter",
       "category": "text",
@@ -754,6 +765,11 @@
   },
   "featured": [
     {
+      "id": "website-snapshot",
+      "name": "Website Snapshot & Recon",
+      "reason": "Deep subresource mirroring, desktop & mobile full-page screenshots, DNS, SSL & hidden path discovery."
+    },
+    {
       "id": "typing-test",
       "name": "Typing Speed Test",
       "reason": "Real-time WPM & accuracy test with custom paste, Indic grapheme segmentation & SVG progress charts."
@@ -807,11 +823,6 @@
       "id": "totp-generator",
       "name": "2FA TOTP Generator",
       "reason": "Generates standard RFC 6238 time-based one-time passwords entirely offline without secret leakage."
-    },
-    {
-      "id": "cvss-calculator",
-      "name": "CVSS v3.1 Calculator",
-      "reason": "Interactive Common Vulnerability Scoring System calculator with real-time vector string generation."
     }
   ],
   "securityLab": [
