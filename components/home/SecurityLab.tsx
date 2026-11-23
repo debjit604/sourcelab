@@ -50,25 +50,35 @@ export function SecurityLab() {
       tagColor: "text-amber-400 bg-amber-950/30 border-amber-800/40",
       honestNotice: "Direct DoH query from browser to resolver",
     },
+    {
+      id: "website-snapshot",
+      slug: "/security/website-snapshot",
+      name: "Website Snapshot & Recon",
+      description: "Headless browser snapshot, asset mirroring, screenshots, DNS, SSL, aur hidden sensitive paths check.",
+      icon: Globe,
+      tag: "Server-assisted · 10m TTL",
+      tagColor: "text-amber-400 bg-amber-950/30 border-amber-800/40",
+      honestNotice: "Target URL fetched by recon service with strict SSRF guard; auto-deletes in 10 minutes",
+    },
   ];
 
   return (
-    <section className="space-y-6 pt-6">
+    <section id="security-lab" className="space-y-6 pt-6">
       <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[var(--sl-border)] pb-4 gap-2">
         <div>
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-950/30 border border-cyan-800/40 text-[11px] font-mono text-[var(--sl-accent)] mb-2">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Client-Side Recon Suite</span>
+            <span>Recon & Defensive Suite</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-bold font-heading text-[var(--sl-text)] flex items-center gap-2">
             Security Lab
           </h2>
           <p className="text-xs md:text-sm text-[var(--sl-muted)] mt-1 max-w-2xl">
-            Privacy-first recon aur defensive security auditing. Sabhi analysis tumhare browser me hoti hai bina kisi intermediate server ke.
+            Privacy-first recon aur defensive security auditing. Client-side tools browser me chalte hain, aur server-assisted snapshot 10m TTL ke saath auto-wipe hota hai.
           </p>
         </div>
         <div className="text-[11px] text-[var(--sl-muted)] font-mono">
-          Use only on data you are authorized to analyze.
+          Authorized auditing & defensive use only.
         </div>
       </div>
 
@@ -79,11 +89,14 @@ export function SecurityLab() {
             <Link
               key={tool.id}
               href={tool.slug}
-              className="group relative flex flex-col justify-between p-5 rounded-[14px] bg-[var(--sl-surface)] border border-[var(--sl-border)] hover:border-[var(--sl-accent)] transition-all hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(34,211,238,0.1)]"
+              className="group relative flex flex-col justify-between p-5 rounded-2xl glass-surface border border-[var(--sl-border)] hover:border-[var(--sl-accent)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(34,211,238,0.12)] overflow-hidden"
             >
+              {/* Scanline Effect */}
+              <div className="absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--sl-accent)] to-transparent animate-scanline pointer-events-none" />
+
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-cyan-950/30 text-[var(--sl-accent)]">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-cyan-950/30 text-[var(--sl-accent)] border border-cyan-800/30">
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${tool.tagColor}`}>
