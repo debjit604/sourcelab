@@ -1,4 +1,4 @@
-import { scanSource, SecretFinding, AnalysisSummary } from "../../../../lib/analyzers";
+import { scanSource, SecretFinding, AnalysisSummary } from "../lib/analyzers";
 import { SnapshotAsset, SourceMapRef } from "../snapshot/types";
 
 export interface FileAnalysisFinding {
