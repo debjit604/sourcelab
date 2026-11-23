@@ -114,8 +114,8 @@ describe("Abuse Controls Test Suite", () => {
       expect(entry.targetDomainHash).toMatch(/^[a-f0-9]{64}$/);
       expect(entry.clientIpHash).toMatch(/^[a-f0-9]{64}$/);
       // Confirm no raw IP or sensitive fields
-      expect((entry as Record<string, unknown>).body).toBeUndefined();
-      expect((entry as Record<string, unknown>).content).toBeUndefined();
+      expect((entry as unknown as Record<string, unknown>).body).toBeUndefined();
+      expect((entry as unknown as Record<string, unknown>).content).toBeUndefined();
     });
 
     it("purges entries older than 7 days", () => {

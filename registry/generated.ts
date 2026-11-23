@@ -55,6 +55,7 @@ import typingTestTool from "./tools/typing-test";
 import unitConverterTool from "./tools/unit-converter";
 import urlEncoderTool from "./tools/url-encoder";
 import uuidGeneratorTool from "./tools/uuid-generator";
+import websiteSnapshotTool from "./tools/website-snapshot";
 import wordCounterTool from "./tools/word-counter";
 import xorToolTool from "./tools/xor-tool";
 
@@ -112,6 +113,7 @@ export const allTools: Tool[] = [
   unitConverterTool,
   urlEncoderTool,
   uuidGeneratorTool,
+  websiteSnapshotTool,
   wordCounterTool,
   xorToolTool
 ];

@@ -54,6 +54,7 @@ export const toolComponents: Record<string, ComponentType<Record<string, unknown
   "unit-converter": dynamic(() => import("@/tools/unit-converter")),
   "url-encoder": dynamic(() => import("@/tools/url-encoder")),
   "uuid-generator": dynamic(() => import("@/tools/uuid-generator")),
+  "website-snapshot": dynamic(() => import("@/tools/website-snapshot")),
   "word-counter": dynamic(() => import("@/tools/word-counter")),
   "xor-tool": dynamic(() => import("@/tools/xor-tool")),
 };

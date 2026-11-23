@@ -171,6 +171,12 @@ export function ToolShell({
                 {tool.thirdPartyNotice || "Queries go to DoH Resolver"}
               </span>
             )}
+            {tool.privacy === "server" && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-medium bg-[rgba(251,191,36,0.1)] text-[var(--sl-warning)] border border-[rgba(251,191,36,0.2)]">
+                <Globe className="w-3.5 h-3.5" />
+                Server-Assisted • Ephemeral (10m)
+              </span>
+            )}
           </div>
           <p className="text-sm md:text-base text-[var(--sl-muted)]">
             {tool.tagline}
@@ -193,6 +199,17 @@ export function ToolShell({
           </button>
         </div>
       </div>
+
+      {/* Server Privacy Notice Banner */}
+      {tool.privacy === "server" && (
+        <div className="p-4 rounded-xl bg-[rgba(251,191,36,0.08)] border border-[rgba(251,191,36,0.25)] text-sm text-[var(--sl-text)] flex items-start gap-3">
+          <Globe className="w-5 h-5 text-[var(--sl-warning)] shrink-0 mt-0.5" />
+          <div>
+            <span className="font-semibold text-[var(--sl-warning)]">Server-assisted:</span>{" "}
+            URL is fetched by SourceLab&apos;s recon service; files auto-delete after 10 minutes.
+          </div>
+        </div>
+      )}
 
       {/* Main 2-Column Work Area */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
